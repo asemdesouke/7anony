@@ -186,7 +186,10 @@
             <!-- Ensure your image file is named our-photo.jpg -->
             <img src="our-photo.jpg" alt="Us" onerror="this.src='https://via.placeholder.com/280?text=Our+Photo'">
         </div>
-        
+        <div class="music-container" style="margin-bottom: 20px; z-index: 100;">
+    <button id="play-btn" onclick="toggleMusic()" style="background: white; color: #ff85a2; border: 2px solid #ff85a2; padding: 10px 25px; border-radius: 25px; cursor: pointer; font-weight: bold;">🎵 Play Our Song</button>
+    <audio id="bday-track" src="song.mp3" loop></audio>
+</div>
         <button id="name-btn">7anony 🎀</button>
         <h1 style="color: var(--main-pink); margin-top: 20px; font-size: 2.5rem;">Happy Birthday, Haneen!</h1>
         <p style="font-size: 1.2rem; color: #888;">Scroll down for our story ↓</p>
@@ -285,6 +288,22 @@
                 shootConfetti(); 
             }, 100);
         }
+        function toggleMusic() {
+    const audio = document.getElementById('bday-track');
+    const btn = document.getElementById('play-btn');
+    
+    if (audio.paused) {
+        audio.play();
+        btn.innerText = "⏸ Pause Music";
+        btn.style.backgroundColor = "#ff85a2";
+        btn.style.color = "white";
+    } else {
+        audio.pause();
+        btn.innerText = "🎵 Play Our Song";
+        btn.style.backgroundColor = "white";
+        btn.style.color = "#ff85a2";
+    }
+}
     </script>
 </body>
 </html>
